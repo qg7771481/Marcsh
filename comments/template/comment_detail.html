@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Коментар #{{ object.id }}</h2>
+<p>{{ object.text }}</p>
+<p><small>Автор: {{ object.author }} | Дата: {{ object.created_at }}</small></p>
+
+<a href="{% url 'comment_update' object.id %}">Редагувати</a>
+<a href="{% url 'comment_delete' object.id %}">Видалити</a>
+<a href="{% url 'comment_list' object.post.id %}">Назад до списку</a>
+</body>
+</html>

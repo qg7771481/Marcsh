@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Список Тегів</h2>
+<ul>
+    {% for tag in tags %}
+        <li>{{ tag.name }}</li>
+    {% endfor %}
+</ul>
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+
+<form action="{% url 'create_tag' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="name">
+    <button type="submit">Створити тег</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Коментарі до: {{ post.title }}</h2>
+<a href="{% url 'comment_create' post.id %}">Додати коментар</a>
+<hr>
+{% for comment in comments %}
+    <div>
+        <p><strong>{{ comment.author }}</strong>: {{ comment.text }}</p>
+        <a href="{% url 'comment_detail' comment.id %}">Деталі</a>
+    </div>
+{% empty %}
+    <p>Коментарів немає.</p>
+{% endfor %}
+</body>
+</html>
